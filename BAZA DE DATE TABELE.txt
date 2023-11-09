@@ -1,0 +1,49 @@
+Server name: localhost
+Authentication: Windows Authentication
+Database name: stoc
+
+
+CREATE TABLE [dbo].[CategoriiTabel1] (
+    [CatCod]        INT           IDENTITY (1, 1) NOT NULL,
+    [NumeCategorie] VARCHAR (100) NOT NULL,
+    PRIMARY KEY CLUSTERED ([CatCod] ASC)
+);
+
+CREATE TABLE [dbo].[ClientTabel1] (
+    [ClientCod]     INT           IDENTITY (1, 1) NOT NULL,
+    [ClientNume]    VARCHAR (50)  NOT NULL,
+    [ClientTelefon] VARCHAR (15)  NOT NULL,
+    [ClientAdresa]  VARCHAR (100) NOT NULL,
+    [ClientGen]     VARCHAR (10)  NOT NULL,
+    PRIMARY KEY CLUSTERED ([ClientCod] ASC)
+);
+
+CREATE TABLE [dbo].[ComandaTabel1] (
+    [ComandaNr]     INT  IDENTITY (500, 1) NOT NULL,
+    [ClientId]      INT  NOT NULL,
+    [UserId]        INT  NOT NULL,
+    [DataCumparare] DATE NOT NULL,
+    [SumaCumparare] INT  NOT NULL,
+    PRIMARY KEY CLUSTERED ([ComandaNr] ASC)
+);
+
+CREATE TABLE [dbo].[FurnizorTabel1] (
+    [FurnizorCod]     INT           IDENTITY (1, 1) NOT NULL,
+    [FurnizorNume]    VARCHAR (50)  NOT NULL,
+    [FurnizorTelefon] VARCHAR (15)  NOT NULL,
+    [FurnizorAdresa]  VARCHAR (100) NOT NULL,
+    PRIMARY KEY CLUSTERED ([FurnizorCod] ASC)
+);
+
+CREATE TABLE [dbo].[ProdusTabel1] (
+    [ProdusCod]     INT          IDENTITY (1, 1) NOT NULL,
+    [NumeProdus]    VARCHAR (50) NOT NULL,
+    [Categorie]     INT          NOT NULL,
+    [Cantitate]     INT          NOT NULL,
+    [PretCumparare] INT          NOT NULL,
+    [PretVanzare]   INT          NOT NULL,
+    [Data]          DATE         NOT NULL,
+    [Furnizori]     INT          NOT NULL,
+    [Profit]        INT          NOT NULL,
+    PRIMARY KEY CLUSTERED ([ProdusCod] ASC)
+);
